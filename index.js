@@ -1,6 +1,14 @@
 function getRepositories(){
-  const req = new XMLHttpRequest()
-  req.open('get', 'https://tv-v2.api-fetch.website/movie/{imdb_id}', true)
-  req.send()
-  console.log(this.responseText);
-}
+  var request = new XMLHttpRequest();
+  
+  request.open('GET', 'https://tv-v2.api-fetch.website/movie/{imdb_id}');
+  
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+    }
+  };
+  
+  request.send();
