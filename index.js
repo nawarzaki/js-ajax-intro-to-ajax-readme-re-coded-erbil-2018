@@ -1,5 +1,15 @@
 function getRepositories(){
-  const req = new XMLHttpRequest()
-  req.open('get', 'https://github.com/popcorn-official/popcorn-api.git', true)
-  req.send()
+  const request = new XMLHttpRequest();
+  
+  request.open('GET', 'https://tv-v2.api-fetch.website/movies');
+  
+  request.onreadystatechange = function () {
+    if (this.readyState === 4) {
+      console.log('Status:', this.status);
+      console.log('Headers:', this.getAllResponseHeaders());
+      console.log('Body:', this.responseText);
+    }
+  };
+  
+  request.send();
 }
